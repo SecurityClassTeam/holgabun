@@ -5,14 +5,26 @@ import SignupHost from './routes/SignupHost';
 import Search_home from './routes/Search_home';
 import Account from './routes/Account'; //로그인 회원가입 페이지
 import { authService } from './fBase';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(authService.currentUser);
+  const [init, setInit] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  useEffect(() => {
+    authService.onAuthStateChanged((user) => {
+      if (user) {
+        setIsLoggedIn(true);
+      } else {
+        setIsLoggedIn(false);
+      }
+      setInit(true)
+    });
+  }, []);
+  
   return (
     <>
-      <Navbar/>
+      <Navbar />
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
