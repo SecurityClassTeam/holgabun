@@ -4,8 +4,11 @@ import Mypage from './routes/Mypage';
 import SignupHost from './routes/SignupHost';
 import Search_home from './routes/Search_home';
 import Account from './routes/Account'; //로그인 회원가입 페이지
+import { authService } from './fBase';
+import { useState } from 'react';
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(authService.currentUser);
   return (
     <Router>
       <Routes>
