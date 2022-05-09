@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 
 function App() {
+  /*
   const [init, setInit] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   useEffect(() => {
@@ -21,7 +22,7 @@ function App() {
       setInit(true)
     });
   }, []);
-  
+  */
   return (
     <>
       <Navbar />

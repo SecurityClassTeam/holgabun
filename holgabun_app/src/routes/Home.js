@@ -39,17 +39,17 @@ function Home() {
             짐 맡기러가기
           </Button>
         </StyledLink>
-        <StyledLink to="/search/home">
+        <StyledLink to="/account">
           <Button variant="primary" size="lg">
             로그인
           </Button>
         </StyledLink>
-        <StyledLink to="/search/home">
+        <StyledLink to="/mypage">
           <Button variant="primary" size="lg">
             마이페이지
           </Button>
         </StyledLink>
-        <StyledLink to="/search/home">
+        <StyledLink to="/signupHost">
           <Button variant="primary" size="lg">
             호스트 되기
           </Button>
