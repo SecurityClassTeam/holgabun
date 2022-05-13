@@ -15,6 +15,7 @@ function SpaceReg(userID){
 function App() {
   return (
     <div class="Mypage">
+      {/* <Header /> */}
       <div class="MypageSection">
       <form class="profile">
         <GuestName userName="Guest" />
