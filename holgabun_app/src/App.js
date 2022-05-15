@@ -4,11 +4,14 @@ import Mypage from './routes/Mypage';
 import SignupHost from './routes/SignupHost';
 import Search_home from './routes/Search_home';
 import Account from './routes/Account'; //로그인 회원가입 페이지
+import HostPage from './routes/HostPage';
+import Create from './routes/Create';
 import { authService } from './fBase';
 import { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
-import HostPage from './components/HostPage';
-import Create from './components/Create';
+import HostManage from './routes/HostManage';
+
+
 
 function App() {
   /*
@@ -35,8 +38,8 @@ function App() {
           <Route path="/signupHost" element={<SignupHost />} />
           <Route path="/search/home" element={<Search_home />} />
           <Route path="/account" element={<Account />} />
-          <Route path="/Hostpage" element={<HostPage />} />
-          <Route path="/Hostpage" element={<Create />} />
+          <Route path="/hostpage" element={<HostPage />} />
+          <Route path="/hostpage/create" element={<Create />} />
         </Routes>
       </Router>
     </>

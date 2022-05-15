@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -23,7 +24,6 @@ const Button = styled.button`
   margin: auto;
   width: 350px;
   border-radius: 5px;
-  
 `;
 const StyledLink = styled(Link)`
   text-decoration: none;
@@ -31,6 +31,7 @@ const StyledLink = styled(Link)`
 `;
 
 function Home() {
+  const [loading, setLoading] = useState(true);
   return (
     <MainBox>
       <ButtonBox>
