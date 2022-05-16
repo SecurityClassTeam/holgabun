@@ -2,19 +2,48 @@
 import React, { useState } from 'react';
 //import DatePicker from 'react-datepicker';
 //import 'react-datepicker/dist/react-datepicker.css';
+import { dbService } from '../fBase';
+import {
+  addDoc,
+  collection,
+  getDocs,
+  query,
+  onSnapshot,
+  orderBy,
+} from 'firebase/firestore';
 
 // CSS Modules, react-datepicker-cssmodules.css
 // import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
 function Create() {
   const [startDate, setStartDate] = useState(new Date());
-  const onSubmit = (event) => {};
+  const onSubmit = (event) => {
+    event.preventDefault();
+    /*
+    try {
+      const docRef = await addDoc(collection(dbService, 'Posts'), {
+        hostID:
+        spaceID:
+        spaceName:
+        spaceImg: spaceImg,
+        price:
+        period:
+        location:
+        size:
+        explain:
+        postDate: Date.now(), 
+      });
+    } catch (error) {
+      console.error('Error adding document: ', error);
+    }
+    */
+  };
   return (
     <div>
       <h1>공간 등록하기</h1>
       <form onSubmit={onSubmit}>
         <h4>공간이미지</h4>
-        <input type="file" />
+        <input value={spaceImg} type="file" />
         <select name="공간 규격">
           <option value="none" selected>
             === 규격 선택===
