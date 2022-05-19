@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Link} from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 
 const StyledLink = styled(Link)`
   text-decoration: none;
@@ -11,8 +10,8 @@ const StyledLink = styled(Link)`
 function GuestName({ userName }) {
   return <h1>{userName}님</h1>;
 }
-function SpaceReg(userID){
-    return <img height="30px" src="" alt="MainImg" />
+function SpaceReg(userID) {
+  return <img height="30px" src="" alt="MainImg" />;
 }
 function Mypage() {
   return (
@@ -25,11 +24,27 @@ function Mypage() {
         </form>
         <form class="box1">
           <h2>계정관리</h2>
-          <StyledLink to=""><button>내정보변경하기<tr>비밀번호를 변경하고 계정을 안전하게 보호하세요</tr></button></StyledLink>
-          <StyledLink to=""><button>결제수단관리<tr>결제내역을 확인하고 결제 수단 변경하기</tr></button></StyledLink>
+          <StyledLink to="">
+            <button>
+              내정보변경하기
+              <tr>비밀번호를 변경하고 계정을 안전하게 보호하세요</tr>
+            </button>
+          </StyledLink>
+          <StyledLink to="">
+            <button>
+              결제수단관리<tr>결제내역을 확인하고 결제 수단 변경하기</tr>
+            </button>
+          </StyledLink>
         </form>
         <form class="box2">
           <h2>공간예약</h2>
+          <h4>
+            예약<tr>(대략적인 위치)</tr>
+          </h4>
+
+          <h4>
+            오늘예약<tr>(확실한 위치)</tr>
+          </h4>
           {/*<SpaveReg/ userID="">*/}
         </form>
       </div>
