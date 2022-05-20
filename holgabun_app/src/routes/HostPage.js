@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import './HostPage.css';
 
 const StyledLink = styled(Link)`
   text-decoration: none;
@@ -34,7 +35,7 @@ function HostPage() {
         </form>
         <form class="box2">
           <h2>공간예약</h2>
-          <StyledLink to="/HostManage">
+          <StyledLink to="/hostpage/manage">
             <button>공간등록/수정하기</button>
           </StyledLink>
           <StyledLink to="">

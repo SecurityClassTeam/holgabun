@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import './Mypage.css';
 
 const StyledLink = styled(Link)`
   text-decoration: none;
@@ -39,11 +40,10 @@ function Mypage() {
         <form class="box2">
           <h2>공간예약</h2>
           <h4>
-            예약<tr>(대략적인 위치)</tr>
+            예약
           </h4>
-
           <h4>
-            오늘예약<tr>(확실한 위치)</tr>
+            오늘예약
           </h4>
           {/*<SpaveReg/ userID="">*/}
         </form>
