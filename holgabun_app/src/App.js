@@ -14,7 +14,6 @@ import HostManage from './routes/HostManage';
 
 function App() {
   /*
-  const [init, setInit] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   useEffect(() => {
     authService.onAuthStateChanged((user) => {
