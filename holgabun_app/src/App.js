@@ -39,6 +39,7 @@ function App() {
           <Route path="/account" element={<Account />} />
           <Route path="/hostpage" element={<HostPage />} />
           <Route path="/hostpage/create" element={<Create />} />
+          <Route path="/hostpage/manage" element={<HostManage />} />
         </Routes>
       </Router>
     </>

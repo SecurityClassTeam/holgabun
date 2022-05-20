@@ -43,7 +43,7 @@ function Create() {
       <h1>공간 등록하기</h1>
       <form onSubmit={onSubmit}>
         <h4>공간이미지</h4>
-        <input value={spaceImg} type="file" />
+        <input type="file" />
         <select name="공간 규격">
           <option value="none" selected>
             === 규격 선택===
