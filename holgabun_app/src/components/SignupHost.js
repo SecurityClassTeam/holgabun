@@ -2,8 +2,7 @@ import { async } from '@firebase/util';
 import { addDoc, collection } from 'firebase/firestore';
 import React, { useState } from 'react';
 import { authService, dbService } from '../fBase';
-import { dbService } from '../fBase';
-import './SignupHost.css';
+import '../routes/SignupHost.css';
 
 const SignupHost = () => {
   const [hostName, setHostName] = useState('');
