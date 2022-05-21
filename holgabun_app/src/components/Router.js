@@ -14,7 +14,7 @@ const AppRouter = ({ isLoggedIn, userObj }) => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home isLoggedIn={isLoggedIn} userObj={userObj}/>} />
         <Route path="/mypage" element={<Mypage />} />
         <Route path="/search/home" element={<Search_home />} />
         <Route path="/account" element={<Account />} />

@@ -1,21 +1,19 @@
-import { async } from '@firebase/util';
 import { collection, doc, getDoc, getDocs, query } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react';
 import { dbService } from '../fBase';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import SignupHost from '../components/SignupHost';
 import _ from 'lodash';
 import HostMyPage from './HostMyPage';
 import '../css/HostPage.css';
+import { Link } from 'react-router-dom';
+import Account from './Account';
 
 const HostPage = ({ isLoggedIn, userObj }) => {
   const [init, setInit] = useState('');
   //hostState가 true면 호스트 마이페이지를 보여줌
   const [hostState, setHostState] = useState(false);
-  const [userID, setUserID] = useState(userObj.uid);
   const [hosts, setHosts] = useState('');
-  
+
   //데이터베이스에서 호스트 정보 가져오기
   const getHosts = async () => {
     const HostsRef = collection(dbService, 'Hosts');
@@ -62,7 +60,7 @@ const HostPage = ({ isLoggedIn, userObj }) => {
           {hostState && <HostMyPage />}
         </>
       ) : (
-        console.log('unloggedin')
+        <Account />
       )}
     </div>
   );
