@@ -13,9 +13,9 @@ const ButtonBox = styled.div`
   margin-top: 100px;
 `;
 const Button = styled.button`
-  background-color: blue;
+  background-color: #FFE08C;
   border: none;
-  color: white;
+  color: black;
   padding: 15px 30px;
   text-decoration: none;
   display: block;
@@ -32,6 +32,7 @@ const StyledLink = styled(Link)`
 `;
 
 function Home() {
+  
   const [loading, setLoading] = useState(true);
 
   const [init, setInit] = useState(false);

@@ -2,8 +2,10 @@ import styled from 'styled-components';
 import LogoSrc from './vegan.png';
 import { Link } from 'react-router-dom';
 
+
+
 const Nav = styled.div`
-  background: #98ddde;
+  background: beige;
   height: 100px;
   margin-top: -10px;
   display: flex;
@@ -15,23 +17,23 @@ const Nav = styled.div`
   z-index: 10;
 `;
 const NavbarContainer = styled.div`
+  font-size: 30px;
   display: flex;
   justify-content: space-between;
-  height: 80px;
+  height: 40px;
   z-index: 1;
   width: 100%;
   padding: 0 24px;
   max-width: 1100px;
 `;
 export const NavLogo = styled.div`
-  background-image: url(${LogoSrc});
-  
+  background-image: url('');
 `;
 
 function Navbar() {
   return (    
       <Nav>
-        <NavLogo></NavLogo>
+        <img src={ require('./vegan.png') } height="50px"/>
         <NavbarContainer>홀가분</NavbarContainer>
       </Nav>
     

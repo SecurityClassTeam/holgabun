@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import SignupHost from '../components/SignupHost';
 import _ from 'lodash';
 import HostMyPage from './HostMyPage';
+import './HostPage.css';
 
 const HostPage = ({ isLoggedIn, userObj }) => {
   const [init, setInit] = useState('');

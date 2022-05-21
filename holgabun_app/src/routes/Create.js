@@ -39,7 +39,7 @@ function Create() {
     */
   };
   return (
-    <div>
+    <div class="Create">
       <h1>공간 등록하기</h1>
       <form onSubmit={onSubmit}>
         <h4>공간이미지</h4>
