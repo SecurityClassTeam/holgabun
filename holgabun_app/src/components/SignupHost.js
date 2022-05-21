@@ -1,12 +1,12 @@
 import { async } from '@firebase/util';
 import { addDoc, collection } from 'firebase/firestore';
 import React, { useState } from 'react';
-import { dbService } from '../fBase';
+import { authService, dbService } from '../fBase';
 
 const SignupHost = () => {
   const [hostName, setHostName] = useState('');
   const [hostNumber, setHostNumber] = useState('');
-
+  
   const Host = {
     hostName: hostName,
     hostNumber: hostNumber,
@@ -14,10 +14,10 @@ const SignupHost = () => {
     identityCheak: false,
     bankAccount: null,
     countSpace: 0,
+    userID: authService.currentUser.uid,
   };
 
   const onChange = (event) => {
-    console.log(event.target.name);
     const {
       target: { name, value },
     } = event;
@@ -33,6 +33,16 @@ const SignupHost = () => {
     await addDoc(collection(dbService, 'Hosts'), Host);
     setHostNumber('');
     setHostName('');
+  };
+
+  const onClick = () => {
+    const {
+      target: { name },
+    } = event;
+    if (name === 'submit') {
+      setHostState(true)
+      //console.log(target);
+    }
   };
 
   return (
@@ -58,13 +68,14 @@ const SignupHost = () => {
         <input type="submit" value={'호스트되기'} />
       </form>
       <h3>호스트 이용약관</h3>
-      <div>
-        
-      </div>
+      <div></div>
       <div>
         <div>공간 인증하기</div>
         <div>신원 인증하기</div>
       </div>
+      <button name="submit" onClick={onClick}>
+        제출하기
+      </button>
     </>
   );
 };

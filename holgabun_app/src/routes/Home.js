@@ -74,7 +74,7 @@ function Home() {
             마이페이지
           </Button>
         </StyledLink>
-        <StyledLink to="/signupHost">
+        <StyledLink to="/hostpage">
           <Button variant="primary" size="lg">
             호스트 되기
           </Button>

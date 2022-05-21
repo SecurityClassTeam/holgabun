@@ -8,6 +8,7 @@ import { getStorage } from 'firebase/storage';
 function SpaceImg() {
   return <img height="30px" src="" alt="MainImg" />;
 }
+
 function SpaceReg(userID, HostSpace_1) {
   //위치정보 불러오기
   const SpacePosition = JSON.parse(localStorage.getItem('space'));
