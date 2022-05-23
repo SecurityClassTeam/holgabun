@@ -2,8 +2,6 @@ import styled from 'styled-components';
 import LogoSrc from './vegan.png';
 import { Link } from 'react-router-dom';
 
-
-
 const Nav = styled.div`
   background: beige;
   height: 100px;
@@ -31,12 +29,11 @@ export const NavLogo = styled.div`
 `;
 
 function Navbar() {
-  return (    
-      <Nav>
-        <img src={ require('./vegan.png') } height="50px"/>
-        <NavbarContainer>홀가분</NavbarContainer>
-      </Nav>
-    
+  return (
+    <Nav>
+      <img src={require('./vegan.png')} height="50px" />
+      <NavbarContainer>홀가분</NavbarContainer>
+    </Nav>
   );
 }
 

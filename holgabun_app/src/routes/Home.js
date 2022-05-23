@@ -25,6 +25,7 @@ const Button = styled.button`
   margin: auto;
   width: 350px;
   border-radius: 5px;
+  box-shadow: 1px 1px 10px #818181;
 `;
 const StyledLink = styled(Link)`
   text-decoration: none;

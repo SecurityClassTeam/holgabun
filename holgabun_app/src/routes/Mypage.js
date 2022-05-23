@@ -21,7 +21,7 @@ function Mypage() {
         <form class="profile">
           <GuestName userName="Guest" />
           <h4>남는 공간을 통해 수익을 창출해보세요.</h4>
-          <a href="/SingnupHost">자세히 알아보기</a>
+          <a href="/signupHost">자세히 알아보기</a>
         </form>
         <form class="box1">
           <h2>계정관리</h2>
