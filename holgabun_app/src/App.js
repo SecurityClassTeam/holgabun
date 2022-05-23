@@ -1,46 +1,41 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './routes/Home';
-import Mypage from './routes/Mypage';
-import SignupHost from './routes/SignupHost';
-import Search_home from './routes/Search_home';
-import Account from './routes/Account'; //로그인 회원가입 페이지
-import HostPage from './routes/HostPage';
-import Create from './routes/Create';
-import { authService } from './fBase';
 import { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
-import HostManage from './routes/HostManage';
-
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import AppRouter from './components/Router';
 
 function App() {
-  /*
+  const [init, setInit] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userObj, setUserObj] = useState(null);
+
   useEffect(() => {
-    authService.onAuthStateChanged((user) => {
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
       if (user) {
         setIsLoggedIn(true);
+        //console.log(user)
+        //setUserObj({})
+        setUserObj({
+          displayName: user.displayName,
+          email: user.email,
+          uid: user.uid,
+        });
+        //console.log(userObj)
       } else {
         setIsLoggedIn(false);
       }
-      setInit(true)
+      setInit(true);
     });
   }, []);
-  */
+
   return (
     <>
       <Navbar />
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/mypage" element={<Mypage />} />
-          <Route path="/signupHost" element={<SignupHost />} />
-          <Route path="/search/home" element={<Search_home />} />
-          <Route path="/account" element={<Account />} />
-          <Route path="/hostpage" element={<HostPage />} />
-          <Route path="/hostpage/create" element={<Create />} />
-          <Route path="/hostpage/manage" element={<HostManage />} />
-        </Routes>
-      </Router>
+      {init ? (
+        <AppRouter isLoggedIn={isLoggedIn} userObj={userObj} />
+      ) : (
+        'Initializing...'
+      )}
     </>
   );
 }
