@@ -1,7 +1,8 @@
 import { async } from '@firebase/util';
 import { addDoc, collection } from 'firebase/firestore';
 import React, { useState } from 'react';
-import { dbService } from '../fBase';
+import { authService, dbService } from '../fBase';
+import '../css/SignupHost.css';
 
 const SignupHost = () => {
   const [hostName, setHostName] = useState('');
@@ -14,10 +15,10 @@ const SignupHost = () => {
     identityCheak: false,
     bankAccount: null,
     countSpace: 0,
+    userID: authService.currentUser.uid,
   };
 
   const onChange = (event) => {
-    console.log(event.target.name);
     const {
       target: { name, value },
     } = event;
@@ -35,10 +36,20 @@ const SignupHost = () => {
     setHostName('');
   };
 
+  const onClick = () => {
+    const {
+      target: { name },
+    } = event;
+    if (name === 'submit') {
+      setHostState(true);
+      //console.log(target);
+    }
+  };
+
   return (
-    <>
+    <div>
       <h1>호스트 되기</h1>
-      <form onSubmit={onSubmit}>
+      <form class="submit" onSubmit={onSubmit}>
         <input
           type="text"
           name="hostName"
@@ -47,6 +58,7 @@ const SignupHost = () => {
           onChange={onChange}
           required
         />
+        <tr />
         <input
           type="text"
           name="hostNumber"
@@ -55,17 +67,18 @@ const SignupHost = () => {
           value={hostNumber}
           required
         />
+        <tr />
         <input type="submit" value={'호스트되기'} />
       </form>
       <h3>호스트 이용약관</h3>
-      <div>
-        
-      </div>
-      <div>
+      <div class="SignupHost">
         <div>공간 인증하기</div>
         <div>신원 인증하기</div>
+        <button name="submit" onClick={onClick}>
+          제출하기
+        </button>
       </div>
-    </>
+    </div>
   );
 };
 

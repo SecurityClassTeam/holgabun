@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { authService } from '../fBase';
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
+
 const MainBox = styled.div`
   display: flex;
 `;
@@ -13,9 +12,9 @@ const ButtonBox = styled.div`
   margin-top: 100px;
 `;
 const Button = styled.button`
-  background-color: blue;
+  background-color: #ffe08c;
   border: none;
-  color: white;
+  color: black;
   padding: 15px 30px;
   text-decoration: none;
   display: block;
@@ -31,56 +30,34 @@ const StyledLink = styled(Link)`
   padding: 5px;
 `;
 
-function Home() {
-  const [loading, setLoading] = useState(true);
-
-  const [init, setInit] = useState(false);
-  //user의 현재 로그인 여부 확인
-  const [isLoggedIn, setIsLoggedIn] = useState(authService.currentUser);
-  //user의 정보 객체
-  const [userObj, setUserObj] = useState(null);
-
-  useEffect(() => {
-    const auth = getAuth();
-    // event listner : user의 상태변화 init firebase, create user, log in/out
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        //user 오브젝트를 받으면 로그인
-        setIsLoggedIn(true);
-        const uid = user.uid;
-        setUserObj(user);
-      } else {
-        setIsLoggedIn(false);
-      }
-      setInit(true); //app 초기화후 init의 값을 true로 설정
-    });
-  }, []);
-
+function Home({ isLoggedIn, userObj }) {
   return (
-    <MainBox>
-      <ButtonBox>
-        <StyledLink to="/search/home">
-          <Button variant="primary" size="lg">
-            짐 맡기러가기
-          </Button>
-        </StyledLink>
-        <StyledLink to="/account">
-          <Button variant="primary" size="lg">
-            로그인
-          </Button>
-        </StyledLink>
-        <StyledLink to="/mypage">
-          <Button variant="primary" size="lg">
-            마이페이지
-          </Button>
-        </StyledLink>
-        <StyledLink to="/signupHost">
-          <Button variant="primary" size="lg">
-            호스트 되기
-          </Button>
-        </StyledLink>
-      </ButtonBox>
-    </MainBox>
+    <>
+      <MainBox>
+        <ButtonBox>
+          <StyledLink to="/search/home">
+            <Button variant="primary" size="lg">
+              짐 맡기러가기
+            </Button>
+          </StyledLink>
+          <StyledLink to="/mypage">
+            <Button variant="primary" size="lg">
+              마이페이지
+            </Button>
+          </StyledLink>
+          <StyledLink to="/account">
+            <Button variant="primary" size="lg">
+              로그인
+            </Button>
+          </StyledLink>
+          <StyledLink to="/hostpage">
+            <Button variant="primary" size="lg">
+              호스트 되기
+            </Button>
+          </StyledLink>
+        </ButtonBox>
+      </MainBox>
+    </>
   );
 }
 

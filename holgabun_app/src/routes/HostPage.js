@@ -1,49 +1,69 @@
-//HostMyPage
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import { collection, doc, getDoc, getDocs, query } from 'firebase/firestore';
+import React, { useEffect, useState } from 'react';
+import { dbService } from '../fBase';
+import SignupHost from '../components/SignupHost';
+import _ from 'lodash';
+import HostMyPage from './HostMyPage';
+import '../css/HostPage.css';
 import { Link } from 'react-router-dom';
+import Account from './Account';
 
-const StyledLink = styled(Link)`
-  text-decoration: none;
-  padding: 5px;
-`;
+const HostPage = ({ isLoggedIn, userObj }) => {
+  const [init, setInit] = useState('');
+  //hostState가 true면 호스트 마이페이지를 보여줌
+  const [hostState, setHostState] = useState(false);
+  const [hosts, setHosts] = useState('');
 
-function HostName({ userName }) {
-  return <h1>"{userName}"Hoster님</h1>;
-}
-function SpaceReg(userID) {
-  return <img height="30px" src="" alt="MainImg" />;
-}
-function HostPage() {
+  //데이터베이스에서 호스트 정보 가져오기
+  const getHosts = async () => {
+    const HostsRef = collection(dbService, 'Hosts');
+    const q = query(HostsRef);
+    const data = await getDocs(q);
+
+    const newData = data.docs.map((doc) => ({
+      ...doc.data(),
+      id: doc.id,
+    }));
+    setHosts(newData);
+  };
+  //console.log(hosts);
+  const checkHostAccount = async () => {
+    //현재 userObj의 uid와 동일한 Host.userID를 가지면
+    //hostState를 true
+    const host = _.find(hosts, { userID: userObj.uid });
+    //console.log(host)
+    if (host === undefined) {
+      //console.log('undefined');
+      setHostState(false);
+    } else {
+      //console.log('host is already exist');
+      setHostState(true);
+    }
+  };
+
+  useEffect(() => {
+    getHosts();
+    checkHostAccount();
+    setInit(true);
+  }, []);
+
   return (
-    <div class="Hostpage">
-      {/* <Header /> */}
-      <div class="HostpageSection">
-        <form class="profile">
-          <HostName userName="Guest" />
-          <h4>남는 공간을 통해 수익을 창출해보세요.</h4>
-        </form>
-        <form class="box1">
-          <h2>계정관리</h2>
-          <StyledLink to="">
-            <button>내정보변경하기</button>
-          </StyledLink>
-          <StyledLink to="">
-            <button>대금수령관리</button>
-          </StyledLink>
-        </form>
-        <form class="box2">
-          <h2>공간예약</h2>
-          <StyledLink to="/HostManage">
-            <button>공간등록/수정하기</button>
-          </StyledLink>
-          <StyledLink to="">
-            <button>예약</button>
-          </StyledLink>
-          {/*<SpaveReg/ userID="">*/}
-        </form>
-      </div>
+    /*
+    <Route path="/signupHost" element={<SignupHost />} />
+    <Route path="/hostMypage" element={<HostMyPage />} />
+    */
+
+    <div>
+      {isLoggedIn ? (
+        <>
+          {!hostState && <SignupHost />}
+          {hostState && <HostMyPage />}
+        </>
+      ) : (
+        <Account />
+      )}
     </div>
   );
-}
+};
+
 export default HostPage;
