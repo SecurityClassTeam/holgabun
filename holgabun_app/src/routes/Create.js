@@ -1,7 +1,5 @@
 //호스트 공간 등록페이지
-import React, { useState } from 'react';
 import { authService } from '../fBase';
-import { async } from '@firebase/util';
 import { addDoc, collection } from 'firebase/firestore';
 import React, { useState } from 'react';
 import { dbService } from '../fBase';
@@ -19,18 +17,7 @@ function Create() {
   const [size, setSize] = useState('');
   const [explain, setExplain] = useState('');
 
-  //예약 날짜 및 주소 추가 필요 
-  const Space={
-      hostID:authService.currentUser.uid ,
-      spaceID: authService.currentUser.uid + Date.now(),
-      spaceName: spaceName,
-      spaceImg: spaceImg,
-      price: price,
-      size: size,
-      explain: explain,
-      postDate: Date.now(), 
-    };
-
+  //예약 날짜 및 주소 추가 필요
 
   const onChange = (event) => {
     console.log(event.target.name);
@@ -41,17 +28,25 @@ function Create() {
       setSpaceName(value);
     } else if (name === 'spaceImg') {
       setSpaceImg(value);
-    }
-    else if (name==='spaceSize'){
+    } else if (name === 'spaceSize') {
       setSize(value);
-    }
-    else if( name==='price'){
+    } else if (name === 'price') {
       setPrice(value);
-    }
-    else if(name==='explain'){
+    } else if (name === 'explain') {
       setExplain(value);
     }
   };
+  const Space = {
+    //hostID:authService.currentUser.uid ,
+    //spaceID: authService.currentUser.uid + Date.now(),
+    spaceName: spaceName,
+    spaceImg: spaceImg,
+    price: price,
+    size: size,
+    explain: explain,
+    postDate: Date.now(),
+  };
+
   const onSubmit = async (event) => {
     event.preventDefault();
     await addDoc(collection(dbService, 'Space'), Space);
@@ -61,15 +56,19 @@ function Create() {
     setSize('');
     setExplain('');
   };
-    
-  };
+  
   return (
     <div>
       <h1>공간 등록하기</h1>
       <form onSubmit={onSubmit}>
         <h4>공간이미지</h4>
-        <input value="파일선택" type="file" name="spaceImg" />
-        <select name="spaceSize">
+        <input
+          onChange={onChange}
+          value={spaceImg}
+          type="file"
+          name="spaceImg"
+        />
+        <select onChange={onChange} name="spaceSize">
           <option value="none" selected>
             === 규격 선택===
           </option>
@@ -79,11 +78,20 @@ function Create() {
           <option value="28인치">캐리어 28인치 이상</option>
           <option value="이사">이삿짐</option>
         </select>
-        <input type="number" name="price" min="0" max="1000000000">
+        <input
+          onChange={onChange}
+          value={price}
+          type="number"
+          name="price"
+          min="0"
+          max="1000000000"
+        >
           판매 가격
         </input>
         <h4>추가 설명란</h4>
         <input
+          onChange={onChange}
+          value={explain}
           type="text"
           name="explain"
           placeholder="추가로 설명할 부분을 기재해주세요"
@@ -92,5 +100,5 @@ function Create() {
       </form>
     </div>
   );
-}
+};
 export default Create;
