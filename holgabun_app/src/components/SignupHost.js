@@ -36,7 +36,7 @@ const SignupHost = () => {
     setHostName('');
   };
 
-  const onClick = () => {
+  {/*const onClick = () => {
     const {
       target: { name },
     } = event;
@@ -44,7 +44,7 @@ const SignupHost = () => {
       setHostState(true);
       //console.log(target);
     }
-  };
+  };*/}
 
   return (
     <div>
@@ -74,7 +74,7 @@ const SignupHost = () => {
       <div class="SignupHost">
         <div>공간 인증하기</div>
         <div>신원 인증하기</div>
-        <button name="submit" onClick={onClick}>
+        <button name="submit" >
           제출하기
         </button>
       </div>
