@@ -1,4 +1,8 @@
-import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  signInWithEmailAndPassword,
+} from 'firebase/auth';
 import React, { useState } from 'react';
 
 const AccountForm = () => {
@@ -22,7 +26,7 @@ const AccountForm = () => {
   const onSubmit = async (event) => {
     event.preventDefault();
     const auth = getAuth();
-    
+
     try {
       if (newAccount) {
         const data = await createUserWithEmailAndPassword(
@@ -36,6 +40,9 @@ const AccountForm = () => {
     } catch (error) {
       setError(error.message);
     }
+
+    setEmail('');
+    setPassword('');
   };
 
   const toggleAccount = () => setNewAccount((prev) => !prev);
