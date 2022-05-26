@@ -7,7 +7,6 @@ import HostManage from '../routes/HostManage';
 import HostMyPage from '../routes/HostMyPage';
 import HostPage from '../routes/HostPage';
 import Mypage from '../routes/Mypage';
-import Search_home from '../routes/Search_home';
 import SignupHost from './SignupHost';
 
 const AppRouter = ({ isLoggedIn, userObj }) => {
@@ -16,7 +15,6 @@ const AppRouter = ({ isLoggedIn, userObj }) => {
       <Routes>
         <Route path="/" element={<Home isLoggedIn={isLoggedIn} userObj={userObj}/>} />
         <Route path="/mypage" element={<Mypage />} />
-        <Route path="/search/home" element={<Search_home />} />
         <Route path="/account" element={<Account />} />
         <Route
           path="/hostpage"
