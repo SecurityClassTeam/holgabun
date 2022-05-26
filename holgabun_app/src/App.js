@@ -12,7 +12,6 @@ function App() {
   const [userObj, setUserObj] = useState(null);
   //hostState가 true면 호스트 마이페이지를 보여줌
   const [hostState, setHostState] = useState(false);
-
   const [hosts, setHosts] = useState('');
 
   //데이터베이스에서 호스트 정보 가져오기
@@ -30,14 +29,19 @@ function App() {
 
   //현재 userObj의 uid와 동일한 Host.userID를 가지면 hostState를 true
   const checkHostAccount = async () => {
-    const host = _.find(hosts, { userID: userObj.uid });
-    //console.log(host)
-    if (host === undefined) {
-      //console.log('undefined');
+    if (hosts === '') {
+      //console.log('Hosts is empty');
       setHostState(false);
     } else {
-      //console.log('host is already exist');
-      setHostState(true);
+      const host = _.find(hosts, { userID: userObj.uid });
+      //console.log(host)
+      if (host === undefined) {
+        console.log('undefined');
+        setHostState(false);
+      } else {
+        console.log('host is already exist');
+        setHostState(true);
+      }
     }
   };
 

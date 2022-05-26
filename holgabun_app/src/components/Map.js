@@ -1,9 +1,11 @@
+/*
 import React from 'react';
 import { RenderAfterNavermapsLoaded, NaverMap } from 'react-naver-maps';
 <script 
   type="text/javascript" 
   src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=76pwvpb6kc">
 </script>
+
 const Map = () => {
   const { naver } = window;
 
@@ -29,4 +31,11 @@ const markser = new naver.maps.Marker({
   );
 };
 
+export default Map;
+*/
+import React from 'react';
+
+const Map = () => {
+  return <div></div>;
+};
 export default Map;

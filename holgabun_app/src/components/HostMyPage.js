@@ -17,7 +17,7 @@ const HostMyPage = () => {
   function SpaceReg(userID) {
     return <img height="30px" src="" alt="MainImg" />;
   }
-  //console.log(authService.currentUser)
+  
   
   return (
     <div class="Hostpage">

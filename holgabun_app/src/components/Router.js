@@ -21,7 +21,7 @@ const AppRouter = ({ isLoggedIn, userObj, hostState }) => {
         <Route path="/hostpage/create" element={<Create />} />
         <Route path="/hostpage/manage" element={<HostManage />} />
 
-        <Route path="/seacrh" element={<Search />} />
+        <Route path="/search" element={<Search />} />
       </Routes>
     </Router>
   );
