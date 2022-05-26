@@ -1,5 +1,4 @@
 //호스트 공간 등록페이지
-import { authService } from '../fBase';
 import { addDoc, collection } from 'firebase/firestore';
 import React, { useState } from 'react';
 import { dbService } from '../fBase';

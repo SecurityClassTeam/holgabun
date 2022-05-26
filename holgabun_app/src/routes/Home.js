@@ -1,18 +1,8 @@
 import React from 'react';
-import Home_Guest from './Home_Guest';
-import Home_logIn from './Home_logIn';
+import Home_Guest from '../components/Home_Guest';
+import Home_logIn from '../components/Home_logIn';
 
-
-function Home({ isLoggedIn, userObj }) {
-  return (
-    <div>
-      {isLoggedIn ? (
-        <Home_logIn userObj={userObj} isLoggedIn={isLoggedIn} />
-      ) : (
-        <Home_Guest userObj={userObj} isLoggedIn={isLoggedIn} />
-      )}
-    </div>
-  );
-}
-
+const Home = ({ isLoggedIn }) => {
+  return <div>{isLoggedIn ? <Home_logIn /> : <Home_Guest />}</div>;
+};
 export default Home;

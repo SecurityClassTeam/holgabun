@@ -25,6 +25,7 @@ const AccountForm = () => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
+    
     const auth = getAuth();
 
     try {
