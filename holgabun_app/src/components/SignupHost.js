@@ -1,4 +1,3 @@
-import { async } from '@firebase/util';
 import { addDoc, collection } from 'firebase/firestore';
 import React, { useState } from 'react';
 import { authService, dbService } from '../fBase';
@@ -41,7 +40,6 @@ const SignupHost = () => {
       target: { name },
     } = event;
     if (name === 'submit') {
-      setHostState(true);
       //console.log(target);
     }
   };
