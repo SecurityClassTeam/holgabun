@@ -16,18 +16,25 @@ const AppRouter = ({ isLoggedIn, userObj, hostState }) => {
         <Route path="/" element={<Home isLoggedIn={isLoggedIn} />} />
         <Route path="/mypage" element={<Mypage />} />
         {isLoggedIn ? (
-          <Route
-            path="/account"
-            element={<Home isLoggedIn={isLoggedIn} />}
-          />
+          <Route path="/account" element={<Home isLoggedIn={isLoggedIn} />} />
         ) : (
           <Route
             path="/account"
             element={<Account isLoggedIn={isLoggedIn} />}
           />
         )}
+        {isLoggedIn ? (
+          <Route
+            path="/hostpage"
+            element={<HostPage userObj={userObj} hostState={hostState} />}
+          />
+        ) : (
+          <Route
+            path="/hostpage"
+            element={<Account isLoggedIn={isLoggedIn} />}
+          />
+        )}
 
-        <Route path="/hostpage" element={<HostPage hostState={hostState} />} />
         <Route path="/hostpage/create" element={<Create />} />
         <Route path="/hostpage/manage" element={<HostManage />} />
 

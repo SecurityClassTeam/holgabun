@@ -6,7 +6,7 @@ import '../css/SignupHost.css';
 const SignupHost = () => {
   const [hostName, setHostName] = useState('');
   const [hostNumber, setHostNumber] = useState('');
-
+  
   const Host = {
     hostName: hostName,
     hostNumber: hostNumber,
