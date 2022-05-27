@@ -68,11 +68,7 @@ const SignupHost = () => {
           required
         />
         <tr />
-        <input type="submit" value={'호스트되기'} />
-      </form>
-      <h3>호스트 이용약관</h3>
-
-      <div>
+        <h3>호스트 이용약관</h3>
         <h6>세금</h6>
         <ul>
           <li>
@@ -134,22 +130,23 @@ const SignupHost = () => {
             적용되는지 확인하세요.{' '}
           </li>
         </ul>
-        <form>
-          <label for="Agreement" />
-          <input id="Agreement" type="checkbox" value="Agreement" />
-        </form>
         <p>
           홀가분는 호스트의 행위를 통제할 수 없으며, 이에 대해 어떠한 책임도
           없습니다. 호스트가 의무를 지키지 않은 경우, 홀가분 계정이 일시 중지
           또는 비활성화될 수 있습니다.
         </p>
-       
-      </div>
-      <div class="SignupHost">
-        <div>공간 인증하기</div>
-        <div>신원 인증하기</div>
-        <button name="submit">제출하기</button>
-      </div>
+        <label for="Agreement" />
+        <input required id="Agreement" type="checkbox" value="Agreement" />
+
+        <div class="SignupHost">
+          <button name="SpaceAuth">공간 인증하기</button>
+          <tr />
+
+          <button name="UserAuth">신원 인증하기</button>
+        </div>
+
+        <input type="submit" value={'호스트되기'} />
+      </form>
     </div>
   );
 };

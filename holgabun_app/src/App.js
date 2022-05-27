@@ -50,22 +50,22 @@ function App() {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setIsLoggedIn(true);
-        //console.log(user)
-        //setUserObj({})
         setUserObj({
           displayName: user.displayName,
           email: user.email,
           uid: user.uid,
         });
-        //console.log(userObj)
       } else {
         setIsLoggedIn(false);
       }
       setInit(true);
     });
+  }, [isLoggedIn]);
+
+  useEffect(() => {
     getHosts();
     checkHostAccount();
-  }, []);
+  }, [hostState]);
 
   return (
     <>
