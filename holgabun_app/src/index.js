@@ -6,7 +6,7 @@ import MapTest from './MapTest';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App/>
   </React.StrictMode>,
   document.getElementById('root')
 );
