@@ -1,5 +1,4 @@
 //호스트 공간 등록페이지
-import { authService } from '../fBase';
 import { addDoc, collection } from 'firebase/firestore';
 import React, { useState } from 'react';
 import { dbService } from '../fBase';
@@ -9,7 +8,7 @@ import { dbService } from '../fBase';
 // CSS Modules, react-datepicker-cssmodules.css
 // import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
-function Create() {
+const Create = () => {
   const [spaceName, setSpaceName] = useState('');
   const [spaceImg, setSpaceImg] = useState('');
   const [price, setPrice] = useState('');
@@ -17,10 +16,20 @@ function Create() {
   const [size, setSize] = useState('');
   const [explain, setExplain] = useState('');
 
-  //예약 날짜 및 주소 추가 필요
+  const Space = {
+    //hostID:authService.currentUser.uid ,
+    //spaceID: authService.currentUser.uid + Date.now(),
+    spaceName: spaceName,
+    spaceImg: spaceImg,
+    price: price,
+    size: size,
+    explain: explain,
+    postDate: Date.now(),
+  };
 
+  //예약 날짜 및 주소 추가 필요
   const onChange = (event) => {
-    console.log(event.target.name);
+    //console.log(event.target.name);
     const {
       target: { name, value },
     } = event;
@@ -36,32 +45,23 @@ function Create() {
       setExplain(value);
     }
   };
-  const Space = {
-    //hostID:authService.currentUser.uid ,
-    //spaceID: authService.currentUser.uid + Date.now(),
-    spaceName: spaceName,
-    spaceImg: spaceImg,
-    price: price,
-    size: size,
-    explain: explain,
-    postDate: Date.now(),
-  };
+
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    await addDoc(collection(dbService, 'Space'), Space);
+    await addDoc(collection(dbService, 'Spaces'), Space);
     setSpaceName('');
     setSpaceImg('');
     setPrice('');
     setSize('');
     setExplain('');
   };
-  
+
   return (
     <div class="Create">
       <h1>공간 등록하기</h1>
+      
       <form onSubmit={onSubmit}>
-        <h4>공간이미지</h4>
         <input
           onChange={onChange}
           value={spaceImg}
@@ -85,9 +85,8 @@ function Create() {
           name="price"
           min="0"
           max="1000000000"
-        >
-          판매 가격
-        </input>
+          placeholder='판매 가격'
+        />
         <h4>추가 설명란</h4>
         <input
           onChange={onChange}
@@ -101,4 +100,5 @@ function Create() {
     </div>
   );
 };
+
 export default Create;

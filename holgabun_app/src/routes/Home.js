@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
@@ -61,5 +62,13 @@ function Home({ isLoggedIn, userObj }) {
     </>
   );
 }
+=======
+import React from 'react';
+import Home_Guest from '../components/Home_Guest';
+import Home_logIn from '../components/Home_logIn';
+>>>>>>> f75454119ea33c48ddad169d4da58b1df68f9310
 
+const Home = ({ isLoggedIn }) => {
+  return <div>{isLoggedIn ? <Home_logIn /> : <Home_Guest />}</div>;
+};
 export default Home;

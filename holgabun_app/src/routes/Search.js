@@ -1,15 +1,15 @@
 //검색하는 페이지
 import React, { useState } from 'react';
-import './Search.css';
+import '../css/Search.css';
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import { DateRangePicker } from 'react-date-range';
 import { Button } from '@material-ui/core';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 // DATE PICKER COMPONENT
 function Search() {
-  const history = useHistory();
+  const history = useNavigate();
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
 
