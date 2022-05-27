@@ -5,10 +5,8 @@ import Mypage from '../routes/Mypage';
 import Account from './Account';
 import Create from '../routes/Create';
 import HostManage from './HostManage';
-import Search from '../routes/Search'
+import Search from '../routes/Search';
 import HostPage from '../routes/HostPage';
-
-
 
 const AppRouter = ({ isLoggedIn, userObj, hostState }) => {
   // hostState가 true면
@@ -17,7 +15,17 @@ const AppRouter = ({ isLoggedIn, userObj, hostState }) => {
       <Routes>
         <Route path="/" element={<Home isLoggedIn={isLoggedIn} />} />
         <Route path="/mypage" element={<Mypage />} />
-        <Route path="/account" element={<Account />} />
+        {isLoggedIn ? (
+          <Route
+            path="/account"
+            element={<Home isLoggedIn={isLoggedIn} />}
+          />
+        ) : (
+          <Route
+            path="/account"
+            element={<Account isLoggedIn={isLoggedIn} />}
+          />
+        )}
 
         <Route path="/hostpage" element={<HostPage hostState={hostState} />} />
         <Route path="/hostpage/create" element={<Create />} />

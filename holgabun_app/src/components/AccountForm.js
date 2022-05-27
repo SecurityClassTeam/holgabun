@@ -4,6 +4,7 @@ import {
   signInWithEmailAndPassword,
 } from 'firebase/auth';
 import React, { useState } from 'react';
+import SignupUser from './SignupUser';
 
 const AccountForm = () => {
   const [email, setEmail] = useState('');
@@ -11,6 +12,7 @@ const AccountForm = () => {
   // 계정 검사 후 있으면
   const [newAccount, setNewAccount] = useState(true);
   const [error, setError] = useState('');
+  const [info, setInfo] = useState(false);
 
   const onChange = (event) => {
     const {
@@ -25,7 +27,7 @@ const AccountForm = () => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    
+
     const auth = getAuth();
 
     try {
@@ -47,6 +49,7 @@ const AccountForm = () => {
   };
 
   const toggleAccount = () => setNewAccount((prev) => !prev);
+
   return (
     <>
       <form onSubmit={onSubmit}>
@@ -58,6 +61,7 @@ const AccountForm = () => {
           value={email}
           onChange={onChange}
         />
+        <tr />
         <input
           name="password"
           type="password"
@@ -70,11 +74,11 @@ const AccountForm = () => {
           type="submit"
           value={newAccount ? '계정 만들기' : '로그인하기'}
         />
+        <span onClick={toggleAccount}>
+          {newAccount ? '로그인하기' : '계정만들기'}
+        </span>
         {error && <span>{error}</span>}
       </form>
-      <span onClick={toggleAccount}>
-        {newAccount ? '로그인하기' : '계정만들기'}
-      </span>
     </>
   );
 };

@@ -35,16 +35,14 @@ const SignupHost = () => {
     setHostName('');
   };
 
-  {
-    /*const onClick = () => {
+  const onClick = (event) => {
     const {
       target: { name },
     } = event;
     if (name === 'submit') {
-      //console.log(target);
+      console.log(target);
     }
-  };*/
-  }
+  };
 
   return (
     <div>
@@ -141,11 +139,14 @@ const SignupHost = () => {
         <div class="SignupHost">
           <button name="SpaceAuth">공간 인증하기</button>
           <tr />
-
           <button name="UserAuth">신원 인증하기</button>
         </div>
 
-        <input type="submit" value={'호스트되기'} />
+        <input
+          type="submit"
+          value={'호스트되기'}
+          name="submit"
+        />
       </form>
     </div>
   );
