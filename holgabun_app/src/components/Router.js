@@ -4,8 +4,10 @@ import Account from './Account';
 import Create from '../routes/Create';
 import HostManage from './HostManage';
 import Mypage from '../routes/Mypage';
-<<<<<<< HEAD
 import SignupHost from './SignupHost';
+import Search from '../routes/Search';
+import HostPage from '../routes/HostPage';
+import Home from '../routes/Home';
 
 const AppRouter = ({ isLoggedIn, userObj, hostState }) => {
   // hostState가 true면
