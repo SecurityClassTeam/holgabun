@@ -6,11 +6,6 @@ import HostManage from './HostManage';
 import Mypage from '../routes/Mypage';
 <<<<<<< HEAD
 import SignupHost from './SignupHost';
-=======
-import Search from '../routes/Search';
-import Home from '../routes/Home';
-import HostPage from '../routes/HostPage';
->>>>>>> f75454119ea33c48ddad169d4da58b1df68f9310
 
 const AppRouter = ({ isLoggedIn, userObj, hostState }) => {
   // hostState가 true면
