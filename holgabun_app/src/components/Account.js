@@ -3,7 +3,7 @@ import { authService } from '../fBase';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import AccountForm from './AccountForm';
 
-const Account = () => {
+const Account = ({ isLoggedIn }) => {
   const onSocialClick = async (event) => {
     const {
       target: { name },
@@ -16,14 +16,16 @@ const Account = () => {
   };
 
   return (
-    <div>
-      <AccountForm />
+    <>
+      <div>
+        <AccountForm />
+      </div>
       <div>
         <button onClick={onSocialClick} name="google">
           구글 계정으로 로그인하기
         </button>
       </div>
-    </div>
+    </>
   );
 };
 
