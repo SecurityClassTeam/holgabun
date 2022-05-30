@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { dbService } from './fBase';
-import { collection, getDocs, query, doc } from 'firebase/firestore';
+import { collection, getDocs, query, where } from 'firebase/firestore';
 import Navbar from './components/Navbar';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import AppRouter from './components/Router';
@@ -14,35 +14,15 @@ function App() {
   const [hostState, setHostState] = useState(false);
   const [hosts, setHosts] = useState('');
 
-  //데이터베이스에서 호스트 정보 가져오기
-  const getHosts = async () => {
+  //host 중에서 현재 user의 uid와 같은 이용자 찾기
+  const getHostState = async () => {
     const HostsRef = collection(dbService, 'Hosts');
-    const q = query(HostsRef);
-    const data = await getDocs(q);
-
-    const newData = data.docs.map((doc) => ({
-      ...doc.data(),
-      id: doc.id,
-    }));
-    setHosts(newData);
-  };
-
-  //현재 userObj의 uid와 동일한 Host.userID를 가지면 hostState를 true
-  const checkHostAccount = async () => {
-    if (hosts === '') {
-      //console.log('Hosts is empty');
-      setHostState(false);
-    } else {
-      const host = _.find(hosts, { userID: userObj.uid });
-      //console.log(host)
-      if (host === undefined) {
-        console.log('undefined');
-        setHostState(false);
-      } else {
-        console.log('host is already exist');
-        setHostState(true);
-      }
-    }
+    const q = query(HostsRef, where('userID', '==', userObj.uid));
+    const querySnapshot = await getDocs(q);
+    console.log(querySnapshot)
+    querySnapshot.forEach((doc) => {
+      console.log(doc.id, '=>', doc.data());
+    });
   };
 
   useEffect(() => {
@@ -59,13 +39,9 @@ function App() {
         setIsLoggedIn(false);
       }
       setInit(true);
+      getHostState();
     });
-  }, [isLoggedIn]);
-
-  useEffect(() => {
-    getHosts();
-    checkHostAccount();
-  }, [hostState]);
+  }, []);
 
   return (
     <>
@@ -75,6 +51,7 @@ function App() {
           isLoggedIn={isLoggedIn}
           userObj={userObj}
           hostState={hostState}
+          setHostState={setHostState}
         />
       ) : (
         'Initializing...'
