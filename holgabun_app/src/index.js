@@ -5,7 +5,7 @@ import MapTest from './MapTest';
 
 ReactDOM.render(
   <React.StrictMode>
-    <MapTest address="봉천동 178-45"  />
+    <MapTest  />
   </React.StrictMode>,
   document.getElementById('root')
 );
