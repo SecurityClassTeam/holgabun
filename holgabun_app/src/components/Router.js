@@ -1,3 +1,4 @@
+//하연
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from '../routes/Home';
@@ -27,23 +28,26 @@ const AppRouter = ({ isLoggedIn, userObj, hostState, setHostState }) => {
           />
         )}
         {isLoggedIn ? (
-          <Route
-            path="/hostpage"
-            element={<HostPage userObj={userObj}/>}
-          />
+          <Route path="/hostpage" element={<HostPage userObj={userObj} />} />
         ) : (
           <Route
             path="/hostpage"
-            element={<Account isLoggedIn={isLoggedIn} hostState={hostState} setHostState={setHostState}/>}
+            element={
+              <Account
+                isLoggedIn={isLoggedIn}
+                hostState={hostState}
+                setHostState={setHostState}
+              />
+            }
           />
         )}
 
-        <Route path="/hostpage/create" element={<Create />} />
-        <Route path="/hostpage/manage" element={<HostManage />} />
+        <Route path="/hostpage/create" element={<Create userObj={userObj} />} />
+        <Route path="/hostpage/manage" element={<HostManage userObj={userObj}/>} />
 
         <Route path="/search" element={<Search />} />
-        <Route path='/search/detail' element={<SearchDetail />}/>
-        <Route path='/register' element={<RegisterSpace />}/>
+        <Route path="/search/detail" element={<SearchDetail />} />
+        <Route path="/register" element={<RegisterSpace />} />
       </Routes>
     </Router>
   );

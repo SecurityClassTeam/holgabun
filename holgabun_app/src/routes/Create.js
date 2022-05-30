@@ -3,7 +3,7 @@ import { addDoc, collection } from 'firebase/firestore';
 import React, { useState } from 'react';
 import { dbService } from '../fBase';
 
-const Create = () => {
+const Create = ({ userObj }) => {
   const [spaceName, setSpaceName] = useState('');
   const [spaceImg, setSpaceImg] = useState('');
   const [price, setPrice] = useState('');
@@ -11,8 +11,8 @@ const Create = () => {
   const [size, setSize] = useState('');
   const [explain, setExplain] = useState('');
   const Space = {
-    //hostID:authService.currentUser.uid ,
-    //spaceID: authService.currentUser.uid + Date.now(),
+    userID: userObj.uid,
+    spaceID: userObj.uid + Date.now(),
     spaceName: spaceName,
     spaceImg: spaceImg,
     price: price,

@@ -1,3 +1,4 @@
+//하연
 import React, { useEffect, useState } from 'react';
 import { dbService } from './fBase';
 import { collection, getDocs, query, where } from 'firebase/firestore';
@@ -13,17 +14,6 @@ function App() {
   //hostState가 true면 호스트 마이페이지를 보여줌
   const [hostState, setHostState] = useState(false);
   const [hosts, setHosts] = useState('');
-
-  //host 중에서 현재 user의 uid와 같은 이용자 찾기
-  const getHostState = async () => {
-    const HostsRef = collection(dbService, 'Hosts');
-    const q = query(HostsRef, where('userID', '==', userObj.uid));
-    const querySnapshot = await getDocs(q);
-    console.log(querySnapshot)
-    querySnapshot.forEach((doc) => {
-      console.log(doc.id, '=>', doc.data());
-    });
-  };
 
   useEffect(() => {
     const auth = getAuth();
@@ -42,6 +32,17 @@ function App() {
       getHostState();
     });
   }, []);
+
+  //host 중에서 현재 user의 uid와 같은 이용자 찾기
+  const getHostState = async () => {
+    const HostsRef = collection(dbService, 'Hosts');
+    const q = query(HostsRef, where('userID', '==', userObj.uid));
+    const querySnapshot = await getDocs(q);
+    console.log(querySnapshot)
+    querySnapshot.forEach((doc) => {
+      console.log(doc.id, '=>', doc.data());
+    });
+  };
 
   return (
     <>
