@@ -2,11 +2,6 @@
 import { addDoc, collection } from 'firebase/firestore';
 import React, { useState } from 'react';
 import { dbService } from '../fBase';
-//import DatePicker from 'react-datepicker';
-//import 'react-datepicker/dist/react-datepicker.css';
-
-// CSS Modules, react-datepicker-cssmodules.css
-// import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
 const Create = () => {
   const [spaceName, setSpaceName] = useState('');
@@ -15,7 +10,6 @@ const Create = () => {
   const [location, setLocation] = useState('');
   const [size, setSize] = useState('');
   const [explain, setExplain] = useState('');
-
   const Space = {
     //hostID:authService.currentUser.uid ,
     //spaceID: authService.currentUser.uid + Date.now(),
@@ -25,8 +19,9 @@ const Create = () => {
     size: size,
     explain: explain,
     postDate: Date.now(),
+    location: location,
   };
-
+  
   //예약 날짜 및 주소 추가 필요
   const onChange = (event) => {
     //console.log(event.target.name);
@@ -43,9 +38,10 @@ const Create = () => {
       setPrice(value);
     } else if (name === 'explain') {
       setExplain(value);
+    } else if (name == 'location') {
+      setLocation(value);
     }
   };
-
 
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -55,12 +51,14 @@ const Create = () => {
     setPrice('');
     setSize('');
     setExplain('');
+    setLocation('');
+    setGeometricData({lng:0, lat:0});
   };
 
   return (
     <div class="Create">
       <h1>공간 등록하기</h1>
-      
+
       <form onSubmit={onSubmit}>
         <input
           onChange={onChange}
@@ -80,12 +78,19 @@ const Create = () => {
         </select>
         <input
           onChange={onChange}
+          value={location}
+          type="text"
+          name="location"
+          placeholder="도로명으로 주소를 입력해주세요"
+        />
+        <input
+          onChange={onChange}
           value={price}
           type="number"
           name="price"
           min="0"
           max="1000000000"
-          placeholder='판매 가격'
+          placeholder="판매 가격"
         />
         <h4>추가 설명란</h4>
         <input
