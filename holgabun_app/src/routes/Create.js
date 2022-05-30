@@ -2,11 +2,6 @@
 import { addDoc, collection } from 'firebase/firestore';
 import React, { useState } from 'react';
 import { dbService } from '../fBase';
-//import DatePicker from 'react-datepicker';
-//import 'react-datepicker/dist/react-datepicker.css';
-
-// CSS Modules, react-datepicker-cssmodules.css
-// import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
 const Create = ({ userObj }) => {
   const [spaceName, setSpaceName] = useState('');
@@ -15,7 +10,6 @@ const Create = ({ userObj }) => {
   const [location, setLocation] = useState('');
   const [size, setSize] = useState('');
   const [explain, setExplain] = useState('');
-
   const Space = {
     userID: userObj.uid,
     spaceID: userObj.uid + Date.now(),
@@ -25,8 +19,9 @@ const Create = ({ userObj }) => {
     size: size,
     explain: explain,
     postDate: Date.now(),
+    location: location,
   };
-
+  
   //예약 날짜 및 주소 추가 필요
   const onChange = (event) => {
     //console.log(event.target.name);
@@ -43,6 +38,8 @@ const Create = ({ userObj }) => {
       setPrice(value);
     } else if (name === 'explain') {
       setExplain(value);
+    } else if (name == 'location') {
+      setLocation(value);
     }
   };
 
@@ -54,6 +51,8 @@ const Create = ({ userObj }) => {
     setPrice('');
     setSize('');
     setExplain('');
+    setLocation('');
+    setGeometricData({lng:0, lat:0});
   };
 
   return (
@@ -77,6 +76,13 @@ const Create = ({ userObj }) => {
           <option value="28인치">캐리어 28인치 이상</option>
           <option value="이사">이삿짐</option>
         </select>
+        <input
+          onChange={onChange}
+          value={location}
+          type="text"
+          name="location"
+          placeholder="도로명으로 주소를 입력해주세요"
+        />
         <input
           onChange={onChange}
           value={price}
