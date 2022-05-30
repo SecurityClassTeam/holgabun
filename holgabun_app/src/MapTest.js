@@ -1,3 +1,4 @@
+/*
 import { NaverMap, Marker } from 'react-naver-maps';
 import { RenderAfterNavermapsLoaded } from 'react-naver-maps'; // 패키지 불러오기
 
@@ -21,3 +22,4 @@ function MapTest(props) {
 }
 
 export default MapTest;
+*/

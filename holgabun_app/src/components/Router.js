@@ -8,7 +8,7 @@ import HostManage from './HostManage';
 import Search from '../routes/Search';
 import HostPage from '../routes/HostPage';
 
-const AppRouter = ({ isLoggedIn, userObj, hostState }) => {
+const AppRouter = ({ isLoggedIn, userObj, hostState, setHostState }) => {
   // hostState가 true면
   return (
     <Router>
@@ -26,12 +26,12 @@ const AppRouter = ({ isLoggedIn, userObj, hostState }) => {
         {isLoggedIn ? (
           <Route
             path="/hostpage"
-            element={<HostPage userObj={userObj} hostState={hostState} />}
+            element={<HostPage userObj={userObj}/>}
           />
         ) : (
           <Route
             path="/hostpage"
-            element={<Account isLoggedIn={isLoggedIn} />}
+            element={<Account isLoggedIn={isLoggedIn} hostState={hostState} setHostState={setHostState}/>}
           />
         )}
 
