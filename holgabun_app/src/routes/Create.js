@@ -8,7 +8,7 @@ import { dbService } from '../fBase';
 // CSS Modules, react-datepicker-cssmodules.css
 // import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
-const Create = () => {
+const Create = ({ userObj }) => {
   const [spaceName, setSpaceName] = useState('');
   const [spaceImg, setSpaceImg] = useState('');
   const [price, setPrice] = useState('');
@@ -17,8 +17,8 @@ const Create = () => {
   const [explain, setExplain] = useState('');
 
   const Space = {
-    //hostID:authService.currentUser.uid ,
-    //spaceID: authService.currentUser.uid + Date.now(),
+    userID: userObj.uid,
+    spaceID: userObj.uid + Date.now(),
     spaceName: spaceName,
     spaceImg: spaceImg,
     price: price,
@@ -46,7 +46,6 @@ const Create = () => {
     }
   };
 
-
   const onSubmit = async (event) => {
     event.preventDefault();
     await addDoc(collection(dbService, 'Spaces'), Space);
@@ -60,7 +59,7 @@ const Create = () => {
   return (
     <div class="Create">
       <h1>공간 등록하기</h1>
-      
+
       <form onSubmit={onSubmit}>
         <input
           onChange={onChange}
@@ -85,7 +84,7 @@ const Create = () => {
           name="price"
           min="0"
           max="1000000000"
-          placeholder='판매 가격'
+          placeholder="판매 가격"
         />
         <h4>추가 설명란</h4>
         <input
