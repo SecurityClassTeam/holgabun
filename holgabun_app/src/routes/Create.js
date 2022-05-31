@@ -2,32 +2,32 @@
 import { addDoc, collection } from 'firebase/firestore';
 import React, { useState } from 'react';
 import { dbService } from '../fBase';
+<<<<<<< HEAD
 import './Create.css';
 //import DatePicker from 'react-datepicker';
 //import 'react-datepicker/dist/react-datepicker.css';
+=======
+>>>>>>> 23559385eda7131033d800db96caf115fdcc58f0
 
-// CSS Modules, react-datepicker-cssmodules.css
-// import 'react-datepicker/dist/react-datepicker-cssmodules.css';
-
-const Create = () => {
+const Create = ({ userObj }) => {
   const [spaceName, setSpaceName] = useState('');
   const [spaceImg, setSpaceImg] = useState('');
   const [price, setPrice] = useState('');
   const [location, setLocation] = useState('');
   const [size, setSize] = useState('');
   const [explain, setExplain] = useState('');
-
   const Space = {
-    //hostID:authService.currentUser.uid ,
-    //spaceID: authService.currentUser.uid + Date.now(),
+    userID: userObj.uid,
+    spaceID: userObj.uid + Date.now(),
     spaceName: spaceName,
     spaceImg: spaceImg,
     price: price,
     size: size,
     explain: explain,
     postDate: Date.now(),
+    location: location,
   };
-
+  
   //예약 날짜 및 주소 추가 필요
   const onChange = (event) => {
     //console.log(event.target.name);
@@ -44,9 +44,10 @@ const Create = () => {
       setPrice(value);
     } else if (name === 'explain') {
       setExplain(value);
+    } else if (name == 'location') {
+      setLocation(value);
     }
   };
-
 
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -56,9 +57,12 @@ const Create = () => {
     setPrice('');
     setSize('');
     setExplain('');
+    setLocation('');
+    setGeometricData({lng:0, lat:0});
   };
 
   return (
+<<<<<<< HEAD
     <div class="create">
       <h2>공간 등록하기</h2>
       <form onSubmit={onSubmit}>        
@@ -71,6 +75,12 @@ const Create = () => {
           placeholder="spaceName"
         />
       <h4>공간 이미지를 등록해주세요.</h4>
+=======
+    <div class="Create">
+      <h1>공간 등록하기</h1>
+
+      <form onSubmit={onSubmit}>
+>>>>>>> 23559385eda7131033d800db96caf115fdcc58f0
         <input
           onChange={onChange}
           value={spaceImg}
@@ -90,12 +100,19 @@ const Create = () => {
         </select>
         <input
           onChange={onChange}
+          value={location}
+          type="text"
+          name="location"
+          placeholder="도로명으로 주소를 입력해주세요"
+        />
+        <input
+          onChange={onChange}
           value={price}
           type="number"
           name="price"
           min="0"
           max="1000000000"
-          placeholder='판매 가격'
+          placeholder="판매 가격"
         />
         <h4>추가 설명란</h4>
         <input
