@@ -2,6 +2,7 @@
 import { addDoc, collection } from 'firebase/firestore';
 import React, { useState } from 'react';
 import { dbService } from '../fBase';
+import './Create.css';
 //import DatePicker from 'react-datepicker';
 //import 'react-datepicker/dist/react-datepicker.css';
 
@@ -58,16 +59,25 @@ const Create = () => {
   };
 
   return (
-    <div class="Create">
-      <h1>공간 등록하기</h1>
-      
-      <form onSubmit={onSubmit}>
+    <div class="create">
+      <h2>공간 등록하기</h2>
+      <form onSubmit={onSubmit}>        
+      <h4>공간 제목을 정해주세요.</h4>
+        <input 
+          onChange={onChange}
+          value={spaceName}
+          type="text"
+          name="explain"
+          placeholder="spaceName"
+        />
+      <h4>공간 이미지를 등록해주세요.</h4>
         <input
           onChange={onChange}
           value={spaceImg}
           type="file"
           name="spaceImg"
         />
+        <h4>공간 사이즈 및 가격을 등록해주세요.</h4>
         <select onChange={onChange} name="spaceSize">
           <option value="none" selected>
             === 규격 선택===
