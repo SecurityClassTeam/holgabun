@@ -1,3 +1,5 @@
+//승효
+Search.js;
 //검색하는 페이지
 import React, { useState } from 'react';
 import '../css/Search.css';
@@ -6,6 +8,7 @@ import 'react-date-range/dist/theme/default.css'; // theme css file
 import { DateRangePicker } from 'react-date-range';
 import { Button } from '@material-ui/core';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 // DATE PICKER COMPONENT
 function Search() {
@@ -38,7 +41,9 @@ function Search() {
         <option value="28인치">캐리어 28인치 이상</option>
         <option value="이사">이삿짐</option>
       </select>
-      <Button onClick={() => history.push('/search')}>검색</Button> 
+      <Link to="/search/result">
+        <Button onClick={() => history.push('/search')}>검색</Button>
+      </Link>
     </div>
   );
 }
