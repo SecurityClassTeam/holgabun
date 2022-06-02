@@ -11,12 +11,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import styled from 'styled-components';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+
 
 const ButtonBox = styled.div`
   width: 1000px;
   height: 50px;
   margin-left: 15px;
   margin-top: 30px;
+`;
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  padding: 5px;
 `;
 
 function SearchPage() {
@@ -42,7 +48,12 @@ function SearchPage() {
         <Button variant="warning">종료일: 7월 1일</Button>{' '}
         <Button variant="warning">가격: 10,000~30,000</Button>{' '}
         <Button variant="warning">짐크기: 22인치 1개</Button>{' '}
-        <Button variant="warning">검색 옵션</Button>{' '}
+        <StyledLink to="/search">
+        <Button variant="warning">검색 옵션</Button>{''}
+        </StyledLink>
+        <StyledLink to="/search/result/map">
+        <Button variant="warning">지도</Button>{''}
+        </StyledLink>
       </ButtonBox>
 
       <div className="searchPage">

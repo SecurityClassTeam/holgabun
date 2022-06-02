@@ -23,6 +23,7 @@ const HostManage = ({ userObj }) => {
 */
   return (
     <>
+    <br></br>
       <div class="HostManage">
         <h2>내가 등록한 공간과 예약상태를 확인해보세요</h2>
         <div></div>
@@ -30,13 +31,15 @@ const HostManage = ({ userObj }) => {
         <form>
           <box class="FirstReg">
             <SpaceImg />
+            <br></br>
             <button class="save">수정 및 저장</button>
           </box>
           <box class="SecondReg"></box>
         </form>
       </div>
+      <br></br>
       <div>
-        <Link to="">
+        <Link to="/hostpage/create">
           <Button>공간 추가등록하기</Button>
         </Link>
       </div>

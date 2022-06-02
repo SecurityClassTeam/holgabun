@@ -12,6 +12,7 @@ import HostPage from '../routes/HostPage';
 import SearchDetail from '../routes/SearchDetail';
 import SignupHost from './SignupHost';
 import Signature from './Signature';
+import Map from './MapTest';
 
 const AppRouter = ({ isLoggedIn, userObj, hostState, setHostState }) => {
   // hostState가 true면
@@ -42,19 +43,33 @@ const AppRouter = ({ isLoggedIn, userObj, hostState, setHostState }) => {
             }
           />
         )}
-        <Route path="/SignUpHost" element={<SignupHost userObj={userObj} hostState={hostState} setHostState={setHostState}/>} />
-        <Route path="/Sign" element={<Signature userObj={userObj} />} /> 
-        <Route path="/hostpage/create" element={<Create userObj={userObj} />} />
-        <Route path="/hostpage/manage" element={<HostManage userObj={userObj}/>} />
-        <Route path="/hostpage/auth" element={<Signature userObj={userObj}/>} />
 
+        <Route
+          path="/SignUpHost"
+          element={
+            <SignupHost
+              userObj={userObj}
+              hostState={hostState}
+              setHostState={setHostState}
+            />
+          }
+        />
+        <Route path="/Sign" element={<Signature userObj={userObj} />} />
+        <Route path="/hostpage/create" element={<Create userObj={userObj} />} />
+        <Route
+          path="/hostpage/auth"
+          element={<Signature userObj={userObj} />}
+        />
+        <Route
+          path="/hostpage/manage"
+          element={<HostManage userObj={userObj} />}
+        />
         <Route path="/search" element={<Search />} />
         <Route path="/search/detail" element={<SearchDetail />} />
-        <Route path="/search/result" element={<SearchPage />}/>
+        <Route path="/search/result" element={<SearchPage />} />
+        <Route path="/search/result/map" element={<Map />} />
       </Routes>
     </Router>
   );
 };
 export default AppRouter;
-
-

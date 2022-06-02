@@ -14,7 +14,7 @@ const HostMyPage = ({userObj}) => {
     if(userObj.displayName !== null){
       return <h1>"{userObj.displayName}"Host님</h1>;
     } 
-    return <h1>"닉네임을 설정하세요"Host님</h1>
+    return <h2>"닉네임을 설정하세요"Host님</h2>
   }
 
   /*function SpaceReg(userID) {
@@ -27,11 +27,12 @@ const HostMyPage = ({userObj}) => {
       <div className="HostpageSection">
         <form className="profile">
           <HostName />
-          <h4>남는 공간을 통해 수익을 창출해보세요.</h4>
+          <h5>남는 공간을 통해 수익을 창출해보세요.</h5>
         </form>
         <br />
         <br />
-        <div>
+        <br></br>
+        <div class="hostContainer">
         <form className="box1">
           <h2>계정관리</h2>
           <StyledLink to="">
@@ -42,6 +43,8 @@ const HostMyPage = ({userObj}) => {
           <StyledLink to="">
             <button>대금수령관리</button>
           </StyledLink>
+          <br></br>
+          <br></br>
           <h2>공간예약</h2>
           <StyledLink to="/hostpage/create">
             <button>공간 등록하기</button>

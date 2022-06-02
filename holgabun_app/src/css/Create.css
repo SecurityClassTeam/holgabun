@@ -1,16 +1,24 @@
-body {
-  padding: 0;
+.Create {
+  width: 559px;
+  padding: 10px;
+  background-color: white;
+  left: 20px;
+  top: 150px;
 }
-.create{
-  display: flex;
-  align-items: center;
-  text-align: left;
-  width: 800px;
+.Create > title {
+  display: inline;
+  width: 100%;
+  top: 50px;
 }
-.create > h2{
-  font-display: relative;
-  margin: 30px;
+.form {
+  display: inline-block;
 }
-.create > h4 {
-  font-weight: 100;
+.form > input {
+  display: block;
+  margin-top: 10px;
+  width: 300px;
+}
+.select {
+  display: block;
+  width: 300px;
 }
