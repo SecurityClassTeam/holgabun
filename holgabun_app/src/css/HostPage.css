@@ -71,3 +71,10 @@ form.box2 h2 {
   font-weight: normal;
   line-height: 10px;
 }
+form.box2 div{
+  background-color: lightgray;
+  width: 150px;
+  height: 30px;
+  line-height: 30px;
+  display: block;
+}

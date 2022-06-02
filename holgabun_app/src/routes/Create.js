@@ -3,6 +3,7 @@ import { addDoc, collection } from 'firebase/firestore';
 import React, { useState } from 'react';
 import { dbService } from '../fBase';
 
+
 const Create = ({ userObj }) => {
   const [spaceName, setSpaceName] = useState('');
   const [spaceImg, setSpaceImg] = useState('');
@@ -38,7 +39,7 @@ const Create = ({ userObj }) => {
       setPrice(value);
     } else if (name === 'explain') {
       setExplain(value);
-    } else if (name == 'location') {
+    } else if (name === 'location') {
       setLocation(value);
     }
   };
