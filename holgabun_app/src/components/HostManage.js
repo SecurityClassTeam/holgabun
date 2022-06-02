@@ -1,6 +1,7 @@
 //방관리 페이지
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import React from 'react';
+import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { dbService } from '../fBase';
 
@@ -24,24 +25,20 @@ const HostManage = ({ userObj }) => {
     <>
       <div class="HostManage">
         <h2>내가 등록한 공간과 예약상태를 확인해보세요</h2>
-        <div>
-
-        </div>
-        <div>
-          
-        </div>
+        <div></div>
+        <div></div>
         <form>
           <box class="FirstReg">
             <SpaceImg />
-            <button class="save" >
-              수정 및 저장
-            </button>
+            <button class="save">수정 및 저장</button>
           </box>
-          <box class="SecondReg" ></box>
+          <box class="SecondReg"></box>
         </form>
       </div>
       <div>
-        <Link to="hostpage/create">공간 추가등록하기</Link>
+        <Link to="">
+          <Button>공간 추가등록하기</Button>
+        </Link>
       </div>
     </>
   );

@@ -2,6 +2,7 @@
 import { addDoc, collection } from 'firebase/firestore';
 import React, { useState } from 'react';
 import { dbService } from '../fBase';
+
 const Create = ({ userObj }) => {
   const [spaceName, setSpaceName] = useState('');
   const [spaceImg, setSpaceImg] = useState('');
@@ -10,6 +11,8 @@ const Create = ({ userObj }) => {
   const [size, setSize] = useState('');
   const [explain, setExplain] = useState('');
   const Space = {
+    userID: userObj.uid,
+    spaceID: userObj.uid + Date.now(),
     spaceName: spaceName,
     spaceImg: spaceImg,
     price: price,
@@ -18,6 +21,7 @@ const Create = ({ userObj }) => {
     postDate: Date.now(),
     location: location,
   };
+  
   //예약 날짜 및 주소 추가 필요
   const onChange = (event) => {
     //console.log(event.target.name);
@@ -34,10 +38,11 @@ const Create = ({ userObj }) => {
       setPrice(value);
     } else if (name === 'explain') {
       setExplain(value);
-    } else if (name === 'location') {
+    } else if (name == 'location') {
       setLocation(value);
     }
   };
+
   const onSubmit = async (event) => {
     event.preventDefault();
     await addDoc(collection(dbService, 'Spaces'), Space);
@@ -48,9 +53,11 @@ const Create = ({ userObj }) => {
     setExplain('');
     setLocation('');
   };
+
   return (
     <div class="Create">
       <h1>공간 등록하기</h1>
+
       <form onSubmit={onSubmit}>
         <input
           onChange={onChange}
@@ -97,4 +104,6 @@ const Create = ({ userObj }) => {
     </div>
   );
 };
+
 export default Create;
+
