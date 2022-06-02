@@ -49,14 +49,16 @@ function SearchPage() {
         <div className="searchPage__info">
           <h1>검색 결과: N개</h1>
         </div>
-        <SearchResult
-          img="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ_wbPYTxQPMcBh7SPzLFActXnP3uhifeVT_g&usqp=CA"
-          location="Private room in center of London"
-          title=""
-          description="시내버스정류장 픽업해드립니다."
-          price="10,000원 / 1일"
-          total="20,000원"
-        />
+        {spaces&&spaces.map((space)=>(
+            <SearchResult
+              img={space.spaceImg}
+              location={space.location}
+              title={space.spaceName}
+              description={space.explain}
+              price={space.price}
+              total={space.price}
+             />
+          ))}
       </div>
     </>
   );

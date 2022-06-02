@@ -28,7 +28,7 @@ function SearchResult({
           </div>
           <div className="searchResults__price">
             <h2>{price}</h2>
-            <p>{total}</p>
+            <p>{total*2}원/2박</p>
           </div>
         </div>
       </div>
