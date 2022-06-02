@@ -1,4 +1,3 @@
-/*
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import React, { useState } from 'react';
 import { dbService } from '../fBase';
@@ -25,7 +24,9 @@ const HostSpaceComponent = ({ userObj }) => {
     }
   };
 
-  const SpaceSetting = () => {};
+  const SpaceSetting = () => {
+    console.log(Space);
+  };
   return (
     <>
       {isEmpty ? (
@@ -40,4 +41,3 @@ const HostSpaceComponent = ({ userObj }) => {
 };
 
 export default HostSpaceComponent;
-*/

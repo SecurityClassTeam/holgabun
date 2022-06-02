@@ -52,7 +52,7 @@ const Create = ({ userObj }) => {
     setSize('');
     setExplain('');
     setLocation('');
-    setGeometricData({lng:0, lat:0});
+
   };
 
   return (

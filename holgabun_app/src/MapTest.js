@@ -44,14 +44,7 @@ function MapTest(address) {
          center={{ lat:37.3595316, lng:127.1052133 }} // 지도 위치 (동적으로 변경)
          defaultZoom={13} // 지도 초기 확대 배율
        >
-         <Marker
-           key={1}
-           position={new navermaps.LatLng(37.3595316, 127.1052133)}
-           animation={2}
-           onClick={() => {
-             alert("여기는 N서울타워입니다.");
-           }}
-         />
+         
         </NaverMap>
       </RenderAfterNavermapsLoaded>
     </>

@@ -5,11 +5,9 @@ import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import { DateRangePicker } from 'react-date-range';
 import { Button } from '@material-ui/core';
-import { useNavigate } from 'react-router-dom';
 
 // DATE PICKER COMPONENT
 function Search() {
-  const history = useNavigate();
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
 
@@ -19,7 +17,7 @@ function Search() {
     key: 'selection',
   };
 
-  function handleSelect(ranges) {
+  const handleSelect = (ranges) => {
     setStartDate(ranges.selection.startDate);
     setEndDate(ranges.selection.endDate);
   }
@@ -28,6 +26,7 @@ function Search() {
     <div className="search">
       <DateRangePicker ranges={[selectionRange]} onChange={handleSelect} />
       <h2>짐크기</h2>
+      
       <select name="spaceSize">
         <option value="none" selected>
           === 규격 선택===
@@ -38,9 +37,11 @@ function Search() {
         <option value="28인치">캐리어 28인치 이상</option>
         <option value="이사">이삿짐</option>
       </select>
-      <Button onClick={() => history.push('/search')}>검색</Button> 
+      
     </div>
   );
 }
+
+
 ///search에 대한 라우팅 필요
 export default Search;
