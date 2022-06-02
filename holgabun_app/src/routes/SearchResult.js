@@ -1,8 +1,6 @@
 //검색 결과 객체불러오는 페이지
 import React from 'react';
-import './SearchResult.css';
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-import StarIcon from '@material-ui/icons/Star';
+import '../css/SearchResult.css';
 
 function SearchResult({
   img,
@@ -16,7 +14,7 @@ function SearchResult({
   return (
     <div className="searchResult">
       <img src={img} alt="" />
-      <FavoriteBorderIcon className="searchResult__heart" />
+      <div className="searchResult__heart" />
 
       <div className="searchResult__info">
         <div className="searchResult__infoTop">
@@ -28,10 +26,6 @@ function SearchResult({
 
         <div className="searchResult__infoBottom">
           <div className="searchResult__stars">
-            <StarIcon className="searchResult__star" />
-            <p>
-              <strong>{star}</strong>
-            </p>
           </div>
           <div className="searchResults__price">
             <h2>{price}</h2>

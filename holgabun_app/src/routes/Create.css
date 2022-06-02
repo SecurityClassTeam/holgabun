@@ -1,0 +1,16 @@
+body {
+  padding: 0;
+}
+.create{
+  display: flex;
+  align-items: center;
+  text-align: left;
+  width: 800px;
+}
+.create > h2{
+  font-display: relative;
+  margin: 30px;
+}
+.create > h4 {
+  font-weight: 100;
+}

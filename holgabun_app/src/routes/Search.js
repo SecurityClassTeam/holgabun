@@ -1,3 +1,5 @@
+//승효
+Search.js;
 //검색하는 페이지
 import React, { useState } from 'react';
 import '../css/Search.css';

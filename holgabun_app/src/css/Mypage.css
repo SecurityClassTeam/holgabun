@@ -2,7 +2,6 @@ body {
   padding: 0;
 }
 .Mypage{
-  border: 1px solid red;
   height: 100vh;
 }
 form.profile {
@@ -17,7 +16,6 @@ form.profile {
   color: black;
   text-align: center;
   line-height: 20px;
-  box-shadow: 2px 2px 10px #818181;
 }
 form.profile a{
   text-decoration: none;
