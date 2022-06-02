@@ -7,7 +7,6 @@ function SearchResult({
   location,
   title,
   description,
-  star,
   price,
   total,
 }) {

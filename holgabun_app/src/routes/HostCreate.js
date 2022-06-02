@@ -54,9 +54,35 @@ const Create = ({ userObj }) => {
     setLocation('');
   };
 
+const AppRouter = ({ isLoggedIn, userObj, hostState, setHostState }) => {
+  // hostState가 true면
   return (
-    <div class="Create">
-      <h1>공간 등록하기</h1>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home isLoggedIn={isLoggedIn} />} />
+        <Route path="/mypage" element={<Mypage />} />
+        {isLoggedIn ? (
+          <Route path="/account" element={<Home isLoggedIn={isLoggedIn} />} />
+        ) : (
+          <Route
+            path="/account"
+            element={<Account isLoggedIn={isLoggedIn} />}
+          />
+        )}
+        {isLoggedIn ? (
+          <Route path="/hostpage" element={<HostPage userObj={userObj} />} />
+        ) : (
+          <Route
+            path="/hostpage"
+            element={
+              <Account
+                isLoggedIn={isLoggedIn}
+                hostState={hostState}
+                setHostState={setHostState}
+              />
+            }
+          />
+        )}
 
       <h3>공간 사진을 등록하세요</h3>
       <form onSubmit={onSubmit}>
