@@ -1,10 +1,13 @@
+//승효
 //호스트 공간 등록페이지
 import { addDoc, collection } from 'firebase/firestore';
 import React, { useState } from 'react';
 import { dbService } from '../fBase';
+import { useNavigate } from "react-router";
 
 
 const Create = ({ userObj }) => {
+  const navigate=useNavigate();
   const [spaceName, setSpaceName] = useState('');
   const [spaceImg, setSpaceImg] = useState('');
   const [price, setPrice] = useState('');
@@ -22,7 +25,7 @@ const Create = ({ userObj }) => {
     postDate: Date.now(),
     location: location,
   };
-  
+
   //예약 날짜 및 주소 추가 필요
   const onChange = (event) => {
     //console.log(event.target.name);
@@ -53,6 +56,8 @@ const Create = ({ userObj }) => {
     setSize('');
     setExplain('');
     setLocation('');
+    navigate("/hostpage/manage" );
+
   };
 
   return (
@@ -107,4 +112,3 @@ const Create = ({ userObj }) => {
 };
 
 export default Create;
-

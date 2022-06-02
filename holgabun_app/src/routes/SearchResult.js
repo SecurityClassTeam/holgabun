@@ -1,3 +1,4 @@
+//승효
 //검색 결과 객체불러오는 페이지
 import React from 'react';
 import '../css/SearchResult.css';
