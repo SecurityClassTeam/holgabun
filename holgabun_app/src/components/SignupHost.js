@@ -42,16 +42,7 @@ const SignupHost = ({ userObj, hostState, setHostState }) => {
     setHostName('');
     navigate('/hostpage');
   };
-  /*
-  const onClick = (event) => {
-    const {
-      target: { name },
-    } = event;
-    if (name === 'submit') {
-      console.log(target);
-    }
-  };
-*/
+
   return (
     <>
       <div>
@@ -145,12 +136,6 @@ const SignupHost = ({ userObj, hostState, setHostState }) => {
             </p>
             <label for="Agreement" />
             <input required id="Agreement" type="checkbox" value="Agreement" />
-          </div>
-
-          <div class="SignupHost">
-            <button name="SpaceAuth">공간 인증하기</button>
-            <tr />
-            <button name="UserAuth">신원 인증하기</button>
           </div>
           <input type="submit" value={'호스트되기'} name="submit" />
         </form>
