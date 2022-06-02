@@ -52,10 +52,6 @@ const Create = ({ userObj }) => {
     setSize('');
     setExplain('');
     setLocation('');
-<<<<<<< HEAD
-
-=======
->>>>>>> 236cdd9bd2b26051bf2fba20c5bb72dbad33b863
   };
 
   return (

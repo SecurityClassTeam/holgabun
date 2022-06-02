@@ -8,7 +8,6 @@ import { dbService } from '../fBase';
 import SearchResult from './SearchResult.js';
 
 function SearchPage() {
-
   const getSpaces = async () => {
     const SpacesRef = collection(dbService, 'Spaces');
     const q = query(SpacesRef);
@@ -41,4 +40,3 @@ function SearchPage() {
 }
 
 export default SearchPage;
-
