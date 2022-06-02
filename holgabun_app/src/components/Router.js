@@ -10,7 +10,8 @@ import Search from '../routes/Search';
 import SearchPage from '../routes/SearchPage';
 import HostPage from '../routes/HostPage';
 import SearchDetail from '../routes/SearchDetail';
-import RegisterSpace from '../routes/RegisterSpace';
+import SignupHost from './SignupHost';
+import Signature from './Signature';
 
 const AppRouter = ({ isLoggedIn, userObj, hostState, setHostState }) => {
   // hostState가 true면
@@ -44,11 +45,11 @@ const AppRouter = ({ isLoggedIn, userObj, hostState, setHostState }) => {
 
         <Route path="/hostpage/create" element={<Create userObj={userObj} />} />
         <Route path="/hostpage/manage" element={<HostManage userObj={userObj}/>} />
-        
+        <Route path="/hostpage/auth" element={<Signature userObj={userObj}/>} />
+
         <Route path="/search" element={<Search />} />
         <Route path="/search/detail" element={<SearchDetail />} />
         <Route path="/search/result" element={<SearchPage />}/>
-        <Route path="/register" element={<RegisterSpace />} />
       </Routes>
     </Router>
   );

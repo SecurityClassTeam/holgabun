@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { authService, dbService } from '../fBase';
 import '../css/SignupHost.css';
 
+
 const SignupHost = ({ userObj, hostState, setHostState }) => {
   const [hostName, setHostName] = useState('');
   const [hostNumber, setHostNumber] = useState('');
@@ -34,7 +35,6 @@ const SignupHost = ({ userObj, hostState, setHostState }) => {
     await addDoc(collection(dbService, 'Hosts'), Host);
     //제출하면 호스트 state를 true로 바꾸고
     //호스트 페이지 이동하기
-    console.log(hostState)
     //setHostState(true);
     setHostNumber('');
     setHostName('');
