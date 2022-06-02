@@ -32,6 +32,7 @@ const HostMyPage = () => {
           <StyledLink to="">
             <button>내정보변경하기</button>
           </StyledLink>
+          <br/>
           <StyledLink to="">
             <button>대금수령관리</button>
           </StyledLink>
@@ -41,12 +42,13 @@ const HostMyPage = () => {
           <StyledLink to="/hostpage/create">
             <button>공간 등록하기</button>
           </StyledLink>
+          <br/>
           <StyledLink to="/hostpage/manage">
             <button>공간 관리하기</button>
           </StyledLink>
-      
+          <br/>
           <StyledLink to="">
-            <button>예약</button>
+            <button>예약 관리하기</button>
           </StyledLink>
           {/*<SpaveReg/ userID="">*/}
         </form>
