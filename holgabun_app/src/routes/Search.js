@@ -99,7 +99,7 @@ function Search() {
       </div>
 
       <>
-        <Link to="/search">
+        <Link to="/search/result">
           <Button variant="primary" size="lg">
             <h2>검색</h2>
           </Button>
