@@ -48,7 +48,8 @@ const Signature = ({ userObj }) => {
 
   }
   */
-  const saveSign = () => {
+  const saveSign = () => { 
+    //firebase에 서명 업로드
     console.log(sigPadData);
     const fileRef = ref(storageService, 'hello/sign');
     uploadString(fileRef, sigPadData).then((snapshot) => {

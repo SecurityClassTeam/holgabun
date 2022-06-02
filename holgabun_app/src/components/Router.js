@@ -42,7 +42,8 @@ const AppRouter = ({ isLoggedIn, userObj, hostState, setHostState }) => {
             }
           />
         )}
-
+        <Route path="/SignUpHost" element={<SignupHost userObj={userObj} hostState={hostState} setHostState={setHostState}/>} />
+        <Route path="/Sign" element={<Signature userObj={userObj} />} /> 
         <Route path="/hostpage/create" element={<Create userObj={userObj} />} />
         <Route path="/hostpage/manage" element={<HostManage userObj={userObj}/>} />
         <Route path="/hostpage/auth" element={<Signature userObj={userObj}/>} />

@@ -29,14 +29,14 @@ function App() {
         setIsLoggedIn(false);
       }
       setInit(true);
-      //getHostState();
+      getHostState();
     });
-  }, []);
+  }, [hostState]);
 
   //host 중에서 현재 user의 uid와 같은 이용자 찾기
-  
   const getHostState = async () => {
     const HostsRef = collection(dbService, 'Hosts');
+    
     const q = query(HostsRef, where('userID', '==', userObj.uid));
     const querySnapshot = await getDocs(q);
     console.log(querySnapshot)
