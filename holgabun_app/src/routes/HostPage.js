@@ -4,7 +4,7 @@ import SignupHost from '../components/SignupHost';
 
 const HostPage = ({ userObj, hostState, setHostState }) => {
   return (
-    <div>
+    <div class="hostbox">
       {true ? (
         <HostMyPage userObj={userObj}/>
       ) : (
