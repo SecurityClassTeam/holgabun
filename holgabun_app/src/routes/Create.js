@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import { dbService } from '../fBase';
 import { useNavigate } from "react-router";
 
+
 const Create = ({ userObj }) => {
   const navigate=useNavigate();
   const [spaceName, setSpaceName] = useState('');
@@ -41,7 +42,7 @@ const Create = ({ userObj }) => {
       setPrice(value);
     } else if (name === 'explain') {
       setExplain(value);
-    } else if (name == 'location') {
+    } else if (name === 'location') {
       setLocation(value);
     }
   };

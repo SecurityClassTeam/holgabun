@@ -6,7 +6,7 @@ const HostPage = ({ userObj, hostState, setHostState }) => {
   return (
     <div>
       {true ? (
-        <HostMyPage />
+        <HostMyPage userObj={userObj}/>
       ) : (
         <SignupHost
           userObj={userObj}

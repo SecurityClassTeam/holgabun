@@ -4,9 +4,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from '../routes/Home';
 import Mypage from '../routes/Mypage';
 import Account from './Account';
-import Create from '../routes/HostCreate';
+import Create from '../routes/Create';
 import HostManage from './HostManage';
-import SignupHost from './SignupHost';
 import Search from '../routes/Search';
 import SearchPage from '../routes/SearchPage';
 import HostPage from '../routes/HostPage';
@@ -42,17 +41,15 @@ const AppRouter = ({ isLoggedIn, userObj, hostState, setHostState }) => {
             }
           />
         )}
-
         <Route path="/hostpage/create" element={<Create userObj={userObj} />} />
         <Route
           path="/hostpage/manage"
           element={<HostManage userObj={userObj} />}
         />
-
         <Route path="/search" element={<Search />} />
         <Route path="/search/detail" element={<SearchDetail />} />
         <Route path="/search/result" element={<SearchPage />} />
-        <Route path="/search/result/map" element={<Map/>}/>
+        <Route path="/search/result/map" element={<Map />} />
       </Routes>
     </Router>
   );
