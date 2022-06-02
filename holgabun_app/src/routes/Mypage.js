@@ -45,7 +45,7 @@ function Mypage() {
           <h4>
             오늘예약
           </h4>
-          {/*<SpaveReg/ userID="">*/}
+
         </form>
       </div>
     </div>

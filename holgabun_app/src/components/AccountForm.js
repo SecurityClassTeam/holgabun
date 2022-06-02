@@ -5,7 +5,6 @@ import {
   signInWithEmailAndPassword,
 } from 'firebase/auth';
 import React, { useState } from 'react';
-import SignupUser from './SignupUser';
 
 const AccountForm = () => {
   const [email, setEmail] = useState('');

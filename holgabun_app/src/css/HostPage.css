@@ -1,14 +1,14 @@
 body {
   padding: 0;
 }
-.Hostpage{
+.Hostpage {
   border: 1px solid rgb(255, 255, 255);
   height: 100vh;
   background-position: center center;
   background-repeat: no-repeat;
 }
-.Hostpage:before{
-  content:"";
+.Hostpage:before {
+  content: '';
 
   width: 100%;
   height: 100%;
@@ -46,7 +46,7 @@ form.box1 h2 {
   font-weight: normal;
   color: black;
 }
-form.box1 div{
+form.box1 div {
   background-color: lightgray;
   width: 150px;
   height: 30px;
@@ -63,7 +63,6 @@ form.box2 {
   position: relative;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: black;
   text-align: left;
   line-height: 0px;
 }
@@ -71,7 +70,11 @@ form.box2 h2 {
   font-weight: normal;
   line-height: 10px;
 }
-form.box2 div{
+form.box2 button {
+  color: black;
+  font-size: 15px;
+}
+form.box2 div {
   background-color: lightgray;
   width: 150px;
   height: 30px;

@@ -44,7 +44,7 @@ const AppRouter = ({ isLoggedIn, userObj, hostState, setHostState }) => {
 
         <Route path="/hostpage/create" element={<Create userObj={userObj} />} />
         <Route path="/hostpage/manage" element={<HostManage userObj={userObj}/>} />
-       
+        
         <Route path="/search" element={<Search />} />
         <Route path="/search/detail" element={<SearchDetail />} />
         <Route path="/search/result" element={<SearchPage />}/>

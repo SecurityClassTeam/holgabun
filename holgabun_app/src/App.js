@@ -13,7 +13,7 @@ function App() {
   const [userObj, setUserObj] = useState(null);
   //hostState가 true면 호스트 마이페이지를 보여줌
   const [hostState, setHostState] = useState(false);
-  const [hosts, setHosts] = useState('');
+
 
   useEffect(() => {
     const auth = getAuth();
