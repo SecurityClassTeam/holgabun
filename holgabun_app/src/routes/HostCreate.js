@@ -21,7 +21,7 @@ const Create = ({ userObj }) => {
     postDate: Date.now(),
     location: location,
   };
-
+  
   //예약 날짜 및 주소 추가 필요
   const onChange = (event) => {
     //console.log(event.target.name);
@@ -54,37 +54,10 @@ const Create = ({ userObj }) => {
     setLocation('');
   };
 
-const AppRouter = ({ isLoggedIn, userObj, hostState, setHostState }) => {
-  // hostState가 true면
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home isLoggedIn={isLoggedIn} />} />
-        <Route path="/mypage" element={<Mypage />} />
-        {isLoggedIn ? (
-          <Route path="/account" element={<Home isLoggedIn={isLoggedIn} />} />
-        ) : (
-          <Route
-            path="/account"
-            element={<Account isLoggedIn={isLoggedIn} />}
-          />
-        )}
-        {isLoggedIn ? (
-          <Route path="/hostpage" element={<HostPage userObj={userObj} />} />
-        ) : (
-          <Route
-            path="/hostpage"
-            element={
-              <Account
-                isLoggedIn={isLoggedIn}
-                hostState={hostState}
-                setHostState={setHostState}
-              />
-            }
-          />
-        )}
+    <div class="Create">
+      <h1>공간 등록하기</h1>
 
-      <h3>공간 사진을 등록하세요</h3>
       <form onSubmit={onSubmit}>
         <input
           onChange={onChange}
@@ -92,8 +65,6 @@ const AppRouter = ({ isLoggedIn, userObj, hostState, setHostState }) => {
           type="file"
           name="spaceImg"
         />
-        <br />
-        <h3>공간 규격을 입력하세요</h3>
         <select onChange={onChange} name="spaceSize">
           <option value="none" selected>
             === 규격 선택===
@@ -104,8 +75,6 @@ const AppRouter = ({ isLoggedIn, userObj, hostState, setHostState }) => {
           <option value="28인치">캐리어 28인치 이상</option>
           <option value="이사">이삿짐</option>
         </select>
-        <br />
-        <h3>공간 주소를 입력하세요</h3>
         <input
           onChange={onChange}
           value={location}
@@ -113,8 +82,6 @@ const AppRouter = ({ isLoggedIn, userObj, hostState, setHostState }) => {
           name="location"
           placeholder="도로명으로 주소를 입력해주세요"
         />
-        <br />
-        <h3>공간 가격을 입력하세요</h3>
         <input
           onChange={onChange}
           value={price}
@@ -124,7 +91,7 @@ const AppRouter = ({ isLoggedIn, userObj, hostState, setHostState }) => {
           max="1000000000"
           placeholder="판매 가격"
         />
-        <h4>공간에 대한 추가 설명을 입력하세요</h4>
+        <h4>추가 설명란</h4>
         <input
           onChange={onChange}
           value={explain}
@@ -132,7 +99,6 @@ const AppRouter = ({ isLoggedIn, userObj, hostState, setHostState }) => {
           name="explain"
           placeholder="추가로 설명할 부분을 기재해주세요"
         />
-        <br />
         <input type="submit" value="등록" />
       </form>
     </div>
@@ -140,3 +106,4 @@ const AppRouter = ({ isLoggedIn, userObj, hostState, setHostState }) => {
 };
 
 export default Create;
+
