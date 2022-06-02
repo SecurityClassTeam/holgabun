@@ -47,9 +47,10 @@ function SearchPage() {
 
       <div className="searchPage">
         <div className="searchPage__info">
-          <h1>검색 결과: N개</h1>
+          <h1>검색 결과: 2개</h1>
         </div>
-        {spaces&&spaces.map((space)=>(
+        {spaces &&
+          spaces.map((space) => (
             <SearchResult
               img={space.spaceImg}
               location={space.location}
@@ -57,7 +58,7 @@ function SearchPage() {
               description={space.explain}
               price={space.price}
               total={space.price}
-             />
+            />
           ))}
       </div>
     </>
