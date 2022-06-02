@@ -4,7 +4,7 @@ import { addDoc, collection } from 'firebase/firestore';
 import React, { useState } from 'react';
 import { dbService } from '../fBase';
 import { useNavigate } from "react-router";
-
+import '../css/Create.css';
 
 const Create = ({ userObj }) => {
   const navigate=useNavigate();
@@ -62,16 +62,20 @@ const Create = ({ userObj }) => {
 
   return (
     <div class="Create">
-      <h1>공간 등록하기</h1>
+      <div class="title">
+        <h1>공간 등록하기</h1>
 
-      <form onSubmit={onSubmit}>
-        <input
+      </div>
+    
+      <form class="form" onSubmit={onSubmit}>
+        <input 
           onChange={onChange}
           value={spaceImg}
           type="file"
           name="spaceImg"
         />
-        <select onChange={onChange} name="spaceSize">
+        <br></br>
+        <select class="select"onChange={onChange} name="spaceSize">
           <option value="none" selected>
             === 규격 선택===
           </option>
@@ -97,7 +101,8 @@ const Create = ({ userObj }) => {
           max="1000000000"
           placeholder="판매 가격"
         />
-        <h4>추가 설명란</h4>
+        <br></br>
+        <h6>추가 설명란</h6>
         <input
           onChange={onChange}
           value={explain}
