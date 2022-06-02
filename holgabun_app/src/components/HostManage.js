@@ -36,7 +36,7 @@ const HostManage = ({ userObj }) => {
         </form>
       </div>
       <div>
-        <Link to="">
+        <Link to="/hostpage/create">
           <Button>공간 추가등록하기</Button>
         </Link>
       </div>
