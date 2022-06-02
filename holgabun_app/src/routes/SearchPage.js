@@ -13,6 +13,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+
 const ButtonBox = styled.div`
   width: 1000px;
   height: 50px;

@@ -11,7 +11,7 @@ import Search from '../routes/Search';
 import SearchPage from '../routes/SearchPage';
 import HostPage from '../routes/HostPage';
 import SearchDetail from '../routes/SearchDetail';
-import Map from '../MapTest';
+import Map from './MapTest';
 
 const AppRouter = ({ isLoggedIn, userObj, hostState, setHostState }) => {
   // hostState가 true면
